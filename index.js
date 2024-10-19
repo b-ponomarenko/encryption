@@ -79,7 +79,13 @@ $decodeBtn.addEventListener('click', async () => {
     const content = document.getElementById('content').value;
     const password = document.getElementById('password').value;
 
-    const decrypted = await decrypt(content, password);
+    try {
+        const decrypted = await decrypt(content, password);
 
-    document.getElementById('result').innerText = decrypted;
+        document.getElementById('result').innerText = decrypted;
+    } catch (e) {
+        document.getElementById('result').innerText = 'Error occurred. Double check the data you have passed.';
+    }
+
+
 });
